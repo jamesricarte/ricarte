@@ -1,0 +1,6 @@
+<h1>Post Create</h1>
+<textarea cols="30" rows="10" [value]="newPost" [(ngModel)]="PostInput" placeholder="Input here..."></textarea>
+<hr>
+<button (click)="onAddPost()">Save</button>
+
+<p>{{newPost}}</p>

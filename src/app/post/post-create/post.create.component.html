@@ -1,6 +1,10 @@
-<h1>Post Create</h1>
-<textarea cols="30" rows="10" [value]="newPost" [(ngModel)]="PostInput" placeholder="Input here..."></textarea>
+<h1 class="post-create">Post Create</h1>
+<mat-form-field appearance="outline" class="full-width">
+    <textarea matInput cols="30" rows="10" [value]="newPost" [(ngModel)]="PostInput"
+        placeholder="Input here..."></textarea>
+</mat-form-field>
 <hr>
-<button (click)="onAddPost()">Save</button>
+<button mat-raised-button color="warn" (click)="onAddPost()">Submit</button>
 
+<h4 class="submitted-form">Submitted Data:</h4>
 <p>{{newPost}}</p>

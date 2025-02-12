@@ -1,0 +1,17 @@
+<h1 class="post-create">Post a Content</h1>
+
+<div class="form">
+    <mat-form-field class="full-width">
+        <input matInput type="text" [(ngModel)]="enteredTitle" placeholder="Title">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <textarea matInput cols="100" rows="0" [(ngModel)]="enteredContent" [ngModelOptions]="{standalone: true}"
+            placeholder="Content"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" (click)="onAddPost()">Post Content</button>
+</div>
+
+<!-- <h4 class="submitted-form">Posted:</h4>
+<p class="posted">{{postCreated}}</p> -->

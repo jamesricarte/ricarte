@@ -14,8 +14,8 @@ interface Post {
 
 export class AppComponent {
   title = 'it_elec_6a';
-  storedPosts: Post[] = [];
-  onPostAdded(post: any): void{
-    this.storedPosts.push(post);
-  }
+  // storedPosts: Post[] = [];
+  // onPostAdded(post: any): void{
+  //   this.storedPosts.push(post);
+  // }
 }

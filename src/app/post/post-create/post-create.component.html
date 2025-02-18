@@ -1,17 +1,21 @@
 <h1 class="post-create">Post a Content</h1>
 
-<div class="form">
+<form class="form" (submit)="onAddPost(postForm)" #postForm="ngForm">
     <mat-form-field class="full-width">
-        <input matInput type="text" [(ngModel)]="enteredTitle" placeholder="Title">
+        <input matInput type="text" name="title" ngModel required #title="ngModel" placeholder="Title">
     </mat-form-field>
 
+    <mat-error *ngIf="title.invalid">Enter a title</mat-error>
+
     <mat-form-field class="full-width">
-        <textarea matInput cols="100" rows="0" [(ngModel)]="enteredContent" [ngModelOptions]="{standalone: true}"
+        <textarea matInput cols="100" rows="0" name="content" ngModel="" minlength="10" required #content="ngModel"
             placeholder="Content"></textarea>
     </mat-form-field>
 
-    <button mat-raised-button color="warn" (click)="onAddPost()">Post Content</button>
-</div>
+    <mat-error *ngIf="content.invalid">Enter a content</mat-error>
+
+    <button mat-raised-button color="warn" type="submit">Post Content</button>
+</form>
 
 <!-- <h4 class="submitted-form">Posted:</h4>
 <p class="posted">{{postCreated}}</p> -->

@@ -1,3 +1,7 @@
 .accordion {
     width: 60vw;
 }
+
+mat-spinner {
+    margin: auto;
+}

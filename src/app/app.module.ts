@@ -5,8 +5,7 @@ import { AppComponent } from './app.component';
 import { PostCreateComponent } from './post/post-create/post-create.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,7 +29,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,

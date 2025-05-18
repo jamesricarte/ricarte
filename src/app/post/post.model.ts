@@ -1,6 +1,8 @@
 export interface Post {
-    id?: any;
-    title: string;
-    content: string;
-    imagePath: string;
+  id: string;
+  title: string;
+  content: string;
+  imagePath: string;
+  creator: string | null;
+  creatorEmail?: string;
 }

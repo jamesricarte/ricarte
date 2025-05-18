@@ -1,0 +1,43 @@
+<div class="signup-container">
+  <h1>Sign up</h1>
+  
+  <form (ngSubmit)="onSignup(loginform)" #loginform="ngForm" *ngIf="!Loading">  
+    
+    <mat-form-field class="full-width">
+      <input 
+        matInput 
+        name="email" 
+        ngModel 
+        type="email" 
+        placeholder="Email" 
+        #emailInput="ngModel" 
+        required 
+        email>
+      <mat-error *ngIf="emailInput.invalid && emailInput.touched">
+        Please enter a valid email id
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="full-width">
+      <input 
+        matInput 
+        type="password" 
+        name="password" 
+        placeholder="Password" 
+        ngModel 
+        #passwordInput="ngModel" 
+        required>
+      <mat-error *ngIf="passwordInput.invalid && passwordInput.touched">
+        Please enter a valid password
+      </mat-error>
+    </mat-form-field>
+  
+    <button 
+      mat-raised-button 
+      color="primary" 
+      type="submit"
+      *ngIf= "!Loading">Sign up</button>
+      <mat-spinner *ngIf="Loading"></mat-spinner>
+  </form>
+</div>
+

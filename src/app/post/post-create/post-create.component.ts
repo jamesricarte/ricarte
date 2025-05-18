@@ -15,8 +15,6 @@ import { mimetype } from "./mime-type.validator";
 })
 
 export class PostCreateComponent implements OnInit{
-    // enteredContent = "";
-    // enteredTitle = "";
 
     private mode= 'create';  
     private postId: any | null = null; 
@@ -52,12 +50,13 @@ export class PostCreateComponent implements OnInit{
                           id: postData._id,
                           title: postData.title , 
                           content: postData.content,
-                          imagePath: postData.imagePath
+                          imagePath: postData.imagePath,
+                          creator: postData.creator  
                       };
                       this.form.setValue({
                         title: this.post.title,
                         content: this.post.content,
-                        image: this.post.imagePath
+                        image: this.post.imagePath,
                       })
                   });
               }

@@ -1,19 +1,34 @@
 <div class="accordion">
+     <a mat-button class="new-post-button" routerLink = "/create"> New Post</a>  
     <mat-spinner *ngIf = "Loading"></mat-spinner>  
     <mat-accordion *ngIf="posts.length>=0   && !Loading">
         <mat-expansion-panel *ngFor="let post of posts">
             <mat-expansion-panel-header>
-                {{ post.title }}
+                <mat-panel-title>
+                    <div>
+                        {{ post.title }}
+                        <div class="creator-email">{{ post.creatorEmail }}</div>
+                    </div>
+                </mat-panel-title>
             </mat-expansion-panel-header>
-            <div class="post-image">
+            <div class="post-image" (click)="openImage(post.imagePath)">
                 <img [src]="post.imagePath" [alt]="post.title">
             </div>
-            <p>{{ post.content}}</p>
-            <mat-action-row>
+            <p class="post-content">{{ post.content}}</p>
+
+            <mat-action-row *ngIf= "userIsAuthenticated && userId === post.creator">    
                 <a mat-button color="primary" [routerLink] = "['/edit',post.id]">EDIT</a>  
                 <button mat-button color="warn" (click)="onDelete(post.id)">Delete</button>
             </mat-action-row>
         </mat-expansion-panel>
     </mat-accordion>
+
+    <div class="image-overlay" *ngIf="focusedImage" (click)="closeImage()">
+        <img [src]="focusedImage" class="focused-image" />
+    </div>
+
+    <mat-paginator [length]= "totalposts" [pageSize]= "postperpage"  
+[pageSizeOptions]= "pageSizeOption" (page)= "onChangedPage($event)" *ngIf = "posts.length > 0">  
+</mat-paginator>  
     <p *ngIf="posts.length<=0">No post added yet</p>
 </div>

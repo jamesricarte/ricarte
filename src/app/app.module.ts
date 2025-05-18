@@ -15,15 +15,37 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+import {MatPaginatorModule} from '@angular/material/paginator';  
+
+import { logincomponent } from './authentication/login/login.component';
+
+import { signupcomponent } from './authentication/signup/signup.component';
+
+import { MatCardModule } from '@angular/material/card';
+import { AuthInterceptor } from './authentication/auth-interceptor';
+import { ErrorInterceptor } from './error-interceptor';
+
+import{MatDialogModule} from '@angular/material/dialog';  
+
+import { ErrorComponent } from './error/error.component';
+import { LogoutConfirmationComponent } from './logout-confirmation/logout-confirmation.component';
+import { ProfileComponent } from './profile/profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     PostCreateComponent,
     HeaderComponent,
-    PostListComponent
+    PostListComponent,
+    logincomponent,
+    signupcomponent,
+    ErrorComponent,
+    LogoutConfirmationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -38,8 +60,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HttpClientModule,
     AppRoutingModule,
     MatProgressSpinnerModule,  
+    MatPaginatorModule,
+    MatCardModule,
+    MatDialogModule
   ],
-  providers: [],
+ providers: [{provide: HTTP_INTERCEPTORS,   
+    useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

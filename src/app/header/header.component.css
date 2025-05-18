@@ -6,3 +6,67 @@ a{
   .spacer{  
     flex: 1 1 auto;  
   }  
+
+  li {
+    list-style-type: none
+  }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.profile-menu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  position: relative;
+}
+.profile-menu:hover {
+  background-color: #ea4034;
+}
+
+.profile-menu-email {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.profile-dropdown {
+  background-color: white;
+  color: black;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -115px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 6px;
+  padding: 20px;
+  display: none;
+}
+
+.profile-dropdown ul {
+  margin: 0;
+  padding: 0;
+}
+
+.profile-dropdown-profile {
+  font-size: 15px;
+  padding: 1px 7px 1px 7px;
+  border-radius: 3px;
+}
+
+.profile-dropdown-profile:hover {
+  background-color: rgb(244, 244, 244);
+}
+
+.profile-dropdown.show {
+  display: block;
+}

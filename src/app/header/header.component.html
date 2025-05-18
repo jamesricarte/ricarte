@@ -4,13 +4,34 @@
           Posts 
         </a>  
       </span>
-      <span class="spacer"></span>  
-      <a mat-button routerLink = "/create" routerLinkActive = "mat-accent"> New Post</a>  
+
+    <span class="spacer"></span> 
+
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-    </button>
+    
+    <li *ngIf = "!userIsAuthenticated">  
+      <a mat-button routerLink = "/login" routerLinkActive = "mat-accent">Login</a>  
+    </li>  
+
+    <li *ngIf = "!userIsAuthenticated">  
+      <a mat-button routerLink = "/signup" routerLinkActive = "mat-accent">Signup</a>  
+    </li>  
+
+    <div *ngIf = "userIsAuthenticated" class="profile-menu" (click)="toggleDropdown()">
+      <span class="material-symbols-outlined">
+        account_circle
+      </span>
+
+      <p class="profile-menu-email">{{ userEmail }}</p>
+
+      <div class="profile-dropdown" [ngClass]="{'show': isDropdownOpen}">
+      <ul>
+        <li class="profile-dropdown-profile" routerLink = "/profile">Profile</li>
+        <li *ngIf = "userIsAuthenticated">  
+        <button mat-button (click)="onLogout($event)">Logout</button>
+        </li>  
+      </ul>
+    </div>
+    </div>
+    
 </mat-toolbar>

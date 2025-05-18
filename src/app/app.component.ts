@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './authentication/auth.service';
 
 interface Post {
   id: number;
@@ -12,10 +13,9 @@ interface Post {
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  title = 'it_elec_6a';
-  // storedPosts: Post[] = [];
-  // onPostAdded(post: any): void{
-  //   this.storedPosts.push(post);
-  // }
+export class AppComponent implements OnInit {
+  constructor(private authservice: AuthService){}  
+  ngOnInit(){  
+    this.authservice.autoAuthUser();  
+  }  
 }

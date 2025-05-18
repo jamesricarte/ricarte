@@ -1,0 +1,23 @@
+.profile-container {
+  max-width: 45vw;
+  height: 120vh;
+  margin-top: 50px;
+}
+
+.profile-card {
+  padding: 14px;
+  margin-bottom: 50px
+}
+
+.full-width {
+  width: 100%;
+}
+
+.danger-zone {
+  border-left: 4px solid red;
+  padding-left: 30px;
+}
+
+mat-card-title {
+    margin-bottom: 14px
+}

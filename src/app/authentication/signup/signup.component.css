@@ -1,0 +1,17 @@
+.signup-container {
+  height: 83vh;
+  align-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field{  
+    width: 100%;  
+  }  
+    
+  mat-spinner{  
+    margin: auto;  
+  }  
